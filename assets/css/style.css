@@ -20,7 +20,7 @@ body {
   background-color: #F6F7F8;
   border: 1px solid #D6D9DC;
   border-radius: 3px;
-  width: 80%;
+  width: 95%;
   margin: 10px auto;
   padding: 20px;
 }
@@ -34,14 +34,14 @@ body {
   border: 1px solid #D6D9DC;
   border-radius: 3px;
   text-align: center;  
-  width: 80%;
+  width: 95%;
   padding: 30px;
   margin: 0 0 40px 0;
 }
 
 /*Submit button */
 
-.button {
+.button, .submit {
   font-size: 16px;
   font-weight: bold;
 
@@ -53,12 +53,19 @@ body {
 
   padding: 10px 40px;
   cursor: pointer;
+  margin: 5px;
 }
 
-.button:hover {
+.button:hover, 
+.submit:hover {
   background-color: #76AEED;
 }
 
-.button:active {
+.button:active,
+.submit:active {
   background-color: #407FC7;
+}
+
+img {
+  margin: 10px;
 }
