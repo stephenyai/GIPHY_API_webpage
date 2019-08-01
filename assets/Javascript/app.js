@@ -2,6 +2,8 @@ var ballers = ['Kobe Bryant', 'Lebron James', 'Diana Taurasi', 'Michael Jordan',
 var animateURL;
 var stillURL;
 var ballerImg;
+var rating;
+var ballerName;
 
 function renderButtons() {
 	for (var i=0; i<ballers.length; i++) {
@@ -16,18 +18,18 @@ function makeButton(baller) {
 	$('#ballers-view').append(btn);
 }
 
-renderButtons()
+//Upon clicking button, append 10 gifs
 
-$('.button').on('click', function() {
-
+$(document).on('click', '.button', function() {
+	event.preventDefault();
 	$('#baller-gifs').empty();
 
-	console.log('sdfsd', $(this)[0].innerText)
-	var ballerName = $(this)[0].innerText
+	ballerName = $(this)[0].innerText;
 	var urlObj = {
 		"api_key": 'zFqcBS1uDz4ScU6xiVkScPGNZiF6mwNy',
 		q: ballerName,
 		limit: 10
+		// rating: 
 	}
 
 	var gURL = "https://api.giphy.com/v1/gifs/search?" + $.param(urlObj);
@@ -38,41 +40,58 @@ $('.button').on('click', function() {
 	}).then(function(response) {
 		console.log(response.data)
 
-		var imageURL;
-
 		for (var i=0; i<10; i++) {
 			animateURL = response.data[i].images.fixed_height.url;
 			stillURL = response.data[i].images.fixed_height_still.url;
+			rating = response.data[i].rating
 
 			ballerImg = $('<img>');
-
 			ballerImg.attr('src', stillURL);
 			ballerImg.attr('alt', 'baller');
 			ballerImg.attr('data-state', 'still');
 			ballerImg.attr('data-animate', animateURL);
 			ballerImg.attr('data-still', stillURL);
-			ballerImg.attr('class', 'hello')
-			console.log('sddddd', ballerImg)
-			$('#baller-gifs').append(ballerImg);
+
+			var ballerGIF = $('<p>').text(ballerImg);
+			var rating = $('<p>').text(rating)
+			var newDiv = $('<div>').append(ballerImg, rating)
+			newDiv.attr('class', 'img-rating');
+
+			$('#baller-gifs').prepend(newDiv);
 		}
 	});
 });
 
-$('.hello').on('click', function() {
+//Animate or still function
+
+$(document).on('click', 'img', function() {
+	console.log('efefe')
+	event.preventDefault();
+
 	var state = $(this).attr('data-state');
-	console.log('titeite', state)
+
 	if (state === "still") {
 		$(this).attr('src', $(this).attr('data-animate'));
-		$(this).attr('data state', 'animate');
+		$(this).attr('data-state', 'animate');
 	} else {
 		$(this).attr('src', $(this).attr('data-still'));
 		$(this).attr('data-state', 'still');
 	}
 })
 
+//Upon text input, add to array and make new button
 
+$('.submit').on('click', function() {
+	event.preventDefault();
 
+	var newBaller = $('#ball-player').val();
+	ballers.push(newBaller);
+	makeButton(newBaller);
 
+	$("#ball-player").val("");
+})
+
+renderButtons()
 
 
 

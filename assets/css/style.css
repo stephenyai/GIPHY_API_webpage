@@ -7,7 +7,7 @@
 body {
   color: #5D6063;
   background-color: #EAEDF0;
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 16px;
   line-height: 1;
   display: flex;
@@ -22,12 +22,19 @@ body {
   border-radius: 3px;
   width: 95%;
   margin: 10px auto;
-  padding: 20px;
+  padding: 15px;
 }
 
 .title h1 {
-  font-size: 30px;
+  font-size: 45px;
+  font-family: 'VT323', monospace;
 }
+
+#section {
+  margin-bottom: 30px;
+}
+
+/*Gifs and Images*/
 
 .gifs {
   background-color: #F6F7F8;
@@ -39,33 +46,62 @@ body {
   margin: 0 0 40px 0;
 }
 
-/*Submit button */
+#baller-gifs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+  line-height: 2px;
+}
+
+.img-rating {
+  margin-bottom: 10px;
+}
+
+.baller-name {
+  font-family: 'VT323', monospace;
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+#ball-player {
+  border-radius: 3px;
+  padding: 7px;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+img {
+  margin: 10px;
+}
+
+/*Buttons */
 
 .button, .submit {
   font-size: 16px;
   font-weight: bold;
-
+  font-family: 'Ubuntu', sans-serif;
   color: #FFFFFF;
   background-color: #5995DA;
-
   border: none;
   border-radius: 3px;
-
   padding: 10px 40px;
   cursor: pointer;
   margin: 5px;
 }
 
-.button:hover, 
-.submit:hover {
+.button:hover {
   background-color: #76AEED;
 }
 
-.button:active,
-.submit:active {
+.button:active {
   background-color: #407FC7;
 }
 
-img {
-  margin: 10px;
+.submit {
+  background-color: #a8da59;
+}
+
+.submit:hover {
+  background-color: #cef196;
 }

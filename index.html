@@ -8,28 +8,24 @@
 
 		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu|VT323&display=swap" rel="stylesheet">
 	</head>
 
 	<body>
 	    <header class='title'>
-	      <h1>GIPHY - Ball is Life</h1>
+	    	<h1>GIPHY - BALL IS LIFE</h1>
 	    </header>
 
-	    <div class='gifs'>
-			<div class='form-row'>
-				<label for='ball-player'>Name</label>
+	    <form class='gifs' action='' method='GET'>
+	    	<div id='section'>
+				<label class='baller-name' for='ball-player'>Add a Baller</label>
 				<input id='ball-player' name='ball-player' type='text'/>
-				<button class='submit'>Submit</button>
+				<input class='submit' type='submit' value'Submit'>
+				</div>
+			<p id='ballers-view'></p>
 
-				<p id='ballers-view'></p>
-
-				<div id='baller-gifs'></div>
-			</div>
-		</div>
-
-		<div>
-			<img src="">
-		</div>
+			<div id='baller-gifs'></div>
+		</form>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="assets/javascript/app.js"></script>
